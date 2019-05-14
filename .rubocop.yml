@@ -1,0 +1,120 @@
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+  SupportedStyles:
+    - ruby19
+    - ruby19_no_mixed_keys
+    - hash_rockets
+  # Allow the use of either hash syntax
+  # so, if all keys are symbols, then you can do { key: 'value' }
+  # other wise you use { :key => 'value', 'otherkey' => 'value2' }
+  # we are all hashrocket, with mixed keys ok
+  UseHashRocketsWithSymbolValues: true
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  # Checks the style of children definitions at classes and modules.
+  #
+  # Basically there are two different styles:
+  #
+  # `nested` - have each child on a separate line
+  #   class Foo
+  #     class Bar
+  #     end
+  #   end
+  #
+  # `compact` - combine definitions as much as possible
+  #   class Foo::Bar
+  #   end
+  #
+  # The compact style is only forced, for classes / modules with one child.
+  EnforcedStyle: compact
+  SupportedStyles:
+    - nested
+    - compact
+  Enabled: false
+
+Style/RaiseArgs:
+  EnforcedStyle: compact
+  SupportedStyles:
+    - compact
+    - exploded
+  Enabled: false
+  
+Style/TrailingBlankLines:
+  StyleGuide: 'https://github.com/cbdr/JobIntegrationWiki/wiki/Job-Distribution-Standards'
+  EnforcedStyle: final_blank_line
+  SupportedStyles:
+    - final_newline
+    - final_blank_line
+  Enabled: false
+
+# Indentation of `when`.
+Style/CaseIndentation:
+  IndentWhenRelativeTo: case
+  SupportedStyles:
+    - case
+    - end
+  IndentOneStep: true
+  # By default, the indentation width from Style/IndentationWidth is used
+  # But it can be overridden by setting this parameter
+  # This only matters if IndentOneStep is true
+  IndentationWidth: ~
+  Enabled: true
+
+# Allow safe assignment in conditions.
+#setting to false to throw an error even if you wrap your assignment in parenths.
+Style/ParenthesesAroundCondition:
+  AllowSafeAssignment: false
+  Enabled: True
+
+#our style guide says either is fine but be consistant, thats impossible for rubocop to enforce.
+Style/StringLiterals:
+  Description: 'Checks if uses of quotes match the configured preference.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-string-literals'
+  Enabled: false
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Performance/Casecmp:
+  Description: >-
+             Use `casecmp` rather than `downcase ==`, `upcase ==`, `== downcase`, or `== upcase`..
+  Reference: 'https://github.com/JuanitoFatas/fast-ruby#stringcasecmp-vs-stringdowncase---code'
+  Enabled: false
+
+
+Style/FileName:
+  Description: 'Use snake_case for source file names.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#snake-case-files'
+  Enabled: false
+
+Style/MutableConstant:
+  Description: 'Do not assign mutable objects to constants.'
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 100
+  # To make it possible to copy or click on URIs in the code, we allow lines
+  # contaning a URI to be longer than Max.
+  AllowURI: true
+  URISchemes:
+    - http
+    - https
+  Enabled: false
+
+Style/AlignHash:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
